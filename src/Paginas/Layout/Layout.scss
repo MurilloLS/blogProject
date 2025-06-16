@@ -1,0 +1,28 @@
+$corfundo: yellow;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.menu {
+    background-color: $corfundo;
+    li{
+        display: inline;
+        a {
+            text-decoration: none;
+        }
+    }
+}
+.grade {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    div {
+        width: 90%;
+    }
+    div.lateral {
+        width: 5%;
+        height: 100vh;
+        background-color: darkblue;
+    }
+}

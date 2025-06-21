@@ -1,17 +1,23 @@
-$corfundo: yellow;
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 .menu {
-    background-color: $corfundo;
-    li{
-        display: inline;
-        a {
-            text-decoration: none;
-        }
-    }
+    background-color: #1a72ac;
+    color: white;
+    padding: 25px 50px; 
+    font-size: 25px;
+    text-align: center;
+}
+.link {
+    background-color: transparent;
+    color: white;
+    padding: 15px 30px;
+    font-size: 20px;
+    border-radius: 10px;
+    border-style: none;
+    text-decoration: none;
 }
 .grade {
     display: flex;
@@ -23,6 +29,6 @@ $corfundo: yellow;
     div.lateral {
         width: 5%;
         height: 100vh;
-        background-color: darkblue;
+        background-color: #1a72ac94;
     }
 }

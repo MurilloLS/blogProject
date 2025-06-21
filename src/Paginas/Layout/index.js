@@ -5,16 +5,14 @@ export default function Layout() {
   return (
     <div>
         <nav className="menu">
-            <ul>
-                <li><Link to="/">Postagens</Link></li>
-                <li><Link to="/postagem/create">Publicar</Link></li>
-            </ul>
+            <Link to="/" className="link">Postagens</Link>
+            <Link to="/postagem/create" className="link">Publicar</Link>
         </nav>
 
         <div className="grade">
-            <div className="lateral">x</div>
+            <div className="lateral"></div>
             <Outlet />
-            <div className="lateral">y</div>
+            <div className="lateral"></div>
         </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Postagem() {
@@ -44,45 +44,23 @@ export default function Postagem() {
     }
 
     return(
-        <div>
-            <Link to= '/postagem/create'>Novo</Link>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Titulo</th><br />
-                        <th>Conteudo</th><br />
-                        <th>Nome do autor</th><br />
-                        <th>Data da atualização</th><br />
-                        <th>Data da publicação</th><br />
-                        <th>visualizações</th><br />
-                        <th>Curtidas</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    {postagens == null ? null : postagens.map(
-                        (postagem) => (
-                            <tr key={postagem.id}>
-                                <td>{postagem.titulo}</td><br />
-                                <td>{postagem.conteudo}</td><br />
-                                <td>{postagem.nome_autor}</td><br />
-                                <td>{postagem.data_atualizacao}</td><br />
-                                <td>{postagem.data_publicacao}</td><br />
-                                <td>{postagem.visualizacoes}</td><br />
-                                <td>
-                                    {postagem.curtidas}
-                                    <button onClick={() => handleCurtir(postagem.id)}>
-                                        Curtir
-                                    </button>
-                                </td>
-                                <td>
-                                    <Link to={`/postagem/${postagem.id}`}>Visualizar</Link>
-                                </td>
-                            </tr>
-                        )
-                    )}
-                </tbody>
-            </table>
+        <div style={{ padding: "20px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <h1>Todas as Postagens</h1>
+            {postagens == null ? null : postagens.map(
+                (postagem) => (
+                    <div key={postagem.id} style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px", width: "100%", maxWidth: "600px" }}>
+                        <table>
+                            <tr><h2>{postagem.titulo}</h2></tr>
+                            <tr><p>{postagem.conteudo}</p></tr>
+                            <tr><p>Autor: {postagem.nome_autor}</p></tr>
+                            <tr><p>Visualizações: {postagem.visualizacoes}</p></tr>
+                            <tr><p>Curtidas: {postagem.curtidas}</p></tr>
+                            <tr><button onClick={() => handleCurtir(postagem.id)}>Curtir</button></tr>
+                            <tr><Link to={`/postagem/${postagem.id}`}>Visualizar</Link></tr>
+                        </table>
+                    </div>
+                )
+            )}
         </div>
     )
 }

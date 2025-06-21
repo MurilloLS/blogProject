@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { use, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 export default function PostagemUpdate() {
@@ -61,15 +61,27 @@ export default function PostagemUpdate() {
     }
 
     return (
-        <div>
+        <div style={{ padding: "20px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <h1>Editar postagem</h1>
             <form onSubmit={gravar}>
-                Titulo: <input type="text" ref={titulo} maxLength="100" required /><br />
-                Conteudo: <textarea ref={conteudo} maxLength="3000" required /><br />
-                Nome do autor: <input type="text" ref={nomeAutor} maxLength="100" required /><br />
-                <button type="submit">Enviar</button>
+                <table>
+                    <tr>
+                        <td>Título</td>
+                        <td><input type="text" ref={titulo} maxLength="100" required /></td>
+                    </tr>
+                    <tr>
+                        <td>Conteúdo</td>
+                        <td><textarea ref={conteudo} maxLength="3000" required /></td>
+                    </tr>
+                    <tr>
+                        <td>Nome do Autor</td>
+                        <td><input type="text" ref={nomeAutor} maxLength="100" required /></td>
+                    </tr>
+                    <tr><td colSpan="2"><button type="submit">Enviar</button></td></tr>
+                </table>
             </form>
             <h3>{status}</h3>
-            <Link to={`/`}>Voltar</Link>
+            <Link to="/">Voltar</Link>
         </div>
     )
 }

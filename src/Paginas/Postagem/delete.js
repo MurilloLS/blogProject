@@ -31,11 +31,25 @@ export default function PostagemDelete() {
     }
 
     return (
-        <div>
-            <h3>{postagem.nome}</h3>
-            { status!='Produto excluído' ? <button onClick={confirmar} disabled={botaoStatus}>Confirmar Exclusão</button> : null }
-            <Link to ={`/`}>Voltar</Link>
-            <h3>{status}</h3>
+        <div style={{ padding: "20px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <h1>Excluir Postagem</h1>
+            <div key={postagem.id} style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px", width: "100%", maxWidth: "600px" }}>
+                { status === 'Produto excluído' ? <h2>Postagem excluída</h2> : 
+                    <table>
+                        <tr><h2>{postagem.titulo}</h2></tr>
+                        <tr><p>{postagem.conteudo}</p></tr>
+                        <tr><p>Autor: {postagem.nome_autor}</p></tr>
+                        <tr><p>Visualizações: {postagem.visualizacoes}</p></tr>
+                        <tr><p>Curtidas: {postagem.curtidas}</p></tr>
+                    </table>
+                }
+            </div>
+            <table>
+                <tr><h2>Deseja mesmo excluir a postagem?</h2></tr>
+                <tr>{ status!='Produto excluído' ? <button onClick={confirmar} disabled={botaoStatus}>Confirmar Exclusão</button> : null }</tr>
+                <tr><Link to ={`/`}>Voltar</Link></tr>
+                <tr><h3>{status}</h3></tr>
+            </table>
         </div>
     )
 }
